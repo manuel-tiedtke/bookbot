@@ -18,11 +18,9 @@ def main():
     print(f'Found {word_count} total words')
     print(f'--------- Character Count -------')
     for d in char_frequency_report(char_count):
-        print(f"{d['char']}: {d['num']}")
-    print('============= END ===============')
-
-    print('============ DEBUG ============')
-    print(char_frequency_report(char_count))
+        char = d['char']
+        display_char = char if char.isprintable() else char.encode('unicode_escape').decode('ascii')
+        print(f"{display_char}: {d['num']}")
     print('============= END ===============')
 
 if __name__ == "__main__":
